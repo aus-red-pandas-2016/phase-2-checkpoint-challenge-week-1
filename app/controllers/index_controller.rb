@@ -1,3 +1,3 @@
 get "/" do
-  redirect '/stores'
+  # Add A Redirect To The Stores Index
 end

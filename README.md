@@ -11,7 +11,13 @@ They can also see attributes about this stores locations and it's products.
 
 Begin by creating a schema and migrations for your application. Set up the relationships in the models provided. 
 
-(Hint) The models should give you and idea about what tables you'll need. Also, there's a seed file that could help as well.
+A Store should at least have a name attribute
+
+A Location should at least have an address attribute
+
+A Product should at least have a name attribute
+
+(Hint) The models should give you and idea about what tables and associations you'll need. Also, there's a seed file that could help as well.
 
 
 ### Release 1: Creating Your Routes

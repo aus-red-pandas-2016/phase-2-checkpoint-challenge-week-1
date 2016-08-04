@@ -1,25 +1,12 @@
 <h1><%= @store.name %></h1>
-<a href="/stores/<%=@store.id %>/edit">Edit Store</a>
 
-<h1>Locations</h1>
+<!-- Create a link to the edit page to edit this stores name -->
+
+<h1>Locations:</h1>
 
 <ul>
-<% @store.locations.each do |location| %>
-	
 
-	<!-- <%= erb :'locations/_location', { layout: false, locals: {:location => @location }} %> -->
-	
-	<li>
-		<h1><%= location.address %></h1> 
-		<ul> Products
-			<% location.products.each do |product| %>
-				<!-- <%= erb :'products/_product', { layout: false, locals: {:product => @product }} %> -->
-				<li><%= product.name %></li>
-			<% end %>
-		</ul>
-	</li>
-	
+<!-- Iterate of all you @stores.locations and show their adresss. Then iterate over all your locations and show the products available at that location. -->
 
-<% end %>
 </ul>
 

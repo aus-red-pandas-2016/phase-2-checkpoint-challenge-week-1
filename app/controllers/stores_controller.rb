@@ -1,6 +1,5 @@
 get "/stores/new" do
-  @store = Store.new
-  erb :'stores/new'
+
 end
 
 get '/stores' do 
@@ -9,38 +8,26 @@ get '/stores' do
 	erb(:"stores/index")
 end
 
-get '/stores/:id' do 
-	@store = Store.find(params[:id])
+get '/stores/:id' do  
+  # Get a store and show the show page
 
-	erb(:"stores/show")
 end
 
 delete '/stores/:id' do 
-	@store = Store.find(params[:id])
-	@store.destroy 
-	redirect to("/stores")
+  # Find a store and destroy it!
+  # Redirect back to /stores 
 end
 
 post "/stores" do
-  @store = Store.new(params[:store])
-
-  if @store.save
-    redirect "stores/#{@store.id}"
-  else
-    erb :"stores/new"
-  end
+  # Create a new Store and then send em to that stores show page
 end
 
 get "/stores/:id/edit" do
-	@store = Store.find(params[:id])
-
-	erb(:"stores/edit")
+	# Find the store with the params[:id] and show the user the edit page for that store
 end
 
 
 put "/stores/:id" do
-  store = Store.find(params[:id])
-  store.name = params[:store][:name]
-  store.save 
-  redirect "/stores/#{store.id}"
+  # Send a put request to update a store 
+  # Redirect to that stores show page
 end
