@@ -1,0 +1,10 @@
+<h1 class="ui header">  Take a look at all these stores! </h1>
+
+<a  class="ui button" href="/stores/new"> Create New Store</a>
+
+<ul class="ui list">
+<% @stores.each do |store| %>
+	<li class="ui item">
+	<a href="/stores/<%= store.id %>"> <%= store.name %> </a></li>
+<% end %>
+</ul>
