@@ -10,10 +10,9 @@ end
 
 # UPDATE
 put "/stores/:id" do
-  # Send a put request to update a store
-  # Redirect to that stores show page
+  ##### Couldnt figure out what to put in line 15
   @store = Store.find(params[:id])
-  @store.update(params[:store])
+  @store.update(name: params[:store])
   redirect "/stores/show"
 end
 
