@@ -29,7 +29,8 @@ end
 
 # EDIT
 get "/stores/:id/edit" do
-  # Find the store with the params[:id] and show the user the edit page for that store
+  @store = Store.find(params[:id])
+  erb(:"stores/edit")
 end
 
 # Delete
