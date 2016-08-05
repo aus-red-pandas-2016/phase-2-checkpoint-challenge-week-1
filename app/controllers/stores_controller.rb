@@ -12,6 +12,9 @@ end
 put "/stores/:id" do
   # Send a put request to update a store
   # Redirect to that stores show page
+  @store = Store.find(params[:id])
+  @store.update(params[:store])
+  redirect "/stores/show"
 end
 
 # Index
@@ -35,6 +38,9 @@ end
 
 # Delete
 delete '/stores/:id' do
+  @store = Store.find(params[:id])
   # Find a store and destroy it!
+  @store.destroy
   # Redirect back to /stores
+  redirect "/stores"
 end
