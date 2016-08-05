@@ -8,5 +8,11 @@
 
 <!-- Iterate of all you @stores.locations and show their adresss. Then iterate over all your locations and show the products available at that location. -->
 
+<% @store.locations.each do |location| %>
+  <h2><%= location.address %></h2>
+    <% location.products.each do |product| %>
+      <li><%= product.name %></li>
+    <% end %>
+<% end %>
 </ul>
 
