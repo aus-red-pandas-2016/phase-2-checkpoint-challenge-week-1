@@ -17,14 +17,17 @@ end
 
 # UPDATE
 put "/stores/:id" do
-  # Send a put request to update a store
-  # Redirect to that stores show page
+  p params
+  @store = Store.find(params[:id])
+  store_par = params[:store]
+  name = store_par.values_at(:name)
+  @store.name = name.join
+  erb :"stores/show"
 end
 
-# Index
+# Index - DONE
 get '/stores' do
 	@stores = Store.all
-
 	erb(:"stores/index")
 end
 
@@ -34,13 +37,16 @@ get '/stores/:id' do
   erb :"stores/show"
 end
 
-# EDIT
+# EDIT - DONE
 get "/stores/:id/edit" do
+  @store = Store.find(params[:id])
+  erb :"stores/edit"
   # Find the store with the params[:id] and show the user the edit page for that store
 end
 
-# Delete
+# Delete - DONE
 delete '/stores/:id' do
-  # Find a store and destroy it!
+  @store = Store.find(params[:id])
+  @store.delete
   redirect '/stores'
 end
