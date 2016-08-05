@@ -21,10 +21,10 @@ get '/stores' do
 	erb(:"stores/index")
 end
 
-# Show
+# Show - DONE
 get '/stores/:id' do
-  # Get a store and show the show page
-
+  @store = Store.find(params[:id])
+  erb :"stores/show"
 end
 
 # EDIT
