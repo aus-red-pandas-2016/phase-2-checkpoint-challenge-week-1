@@ -6,15 +6,19 @@ end
 
 # Create
 post "/stores" do
-    @store = Store.find(params[:id])
-  # Create a new Store and then send em to that stores show page
-  redirect 'stores/:id'
+  new_store = Store.new(name: params[:store][:name])
+  new_store.save
+  redirect "stores/#{new_store.id}"
 end
 
 # UPDATE
 put "/stores/:id" do
   # Send a put request to update a store
   # Redirect to that stores show page
+  store = Store.find(params[:id])
+  store.name = params[:store][:name]
+  store.save
+  redirect "stores/#{store.id}"
 end
 
 # Index

@@ -26,3 +26,5 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
 end
+
+gem 'pry'
