@@ -1,10 +1,17 @@
-# NEW
+# NEW - DONE
 get "/stores/new" do
-
+  erb :"stores/new"
 end
 
-# Create
+# Create - DONE
 post "/stores" do
+  @store = Store.new(params[:name])
+  if @store.save
+    redirect "/stores/#{@store.id}"
+  else
+    @errors = @store.errors.full_messages
+    erb :"stores/new"
+  end
   # Create a new Store and then send em to that stores show page
 end
 
