@@ -1,12 +1,14 @@
 <h1><%= @store.name %></h1>
 
-<!-- Create a link to the edit page to edit this stores name -->
+<a href="<%= "/stores/#{@store.id}" %>">
 
 <h1>Locations:</h1>
 
+
 <ul>
+  <% @store.locations.each do |location| %>
+    <li><a href="<%= location.address %>">
+      <%= location.products %></a></li>
 
-<!-- Iterate of all you @stores.locations and show their adresss. Then iterate over all your locations and show the products available at that location. -->
-
+  <% end %>
 </ul>
-
