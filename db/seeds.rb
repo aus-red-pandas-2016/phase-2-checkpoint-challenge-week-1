@@ -8,14 +8,14 @@ Product.destroy_all
   store = Store.create({
     :name => Faker::Company.name,
   })
-  2.times do 
+  2.times do
   	location = Location.create({
   		address: Faker::Address.street_address
   		})
   	store.locations << location
-  	store.save 
+  	store.save
 
-  	5.times do 
+  	5.times do
   		product = Product.create(
   			name: Faker::Commerce.product_name
   			)
