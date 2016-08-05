@@ -27,19 +27,25 @@ get '/stores/:id' do
   erb :'stores/show'
 end
 
-# UPDATE
-put "/stores/:id" do
-  # Send a put request to update a store
-  # Redirect to that stores show page
-end
-
 # EDIT
 get "/stores/:id/edit" do
-  # Find the store with the params[:id] and show the user the edit page for that store
+  @store = Store.find_by_id params[:id]
+  erb :'/stores/edit'
 end
+
+# UPDATE
+put "/stores/:id" do
+  store = Store.find_by_id params[:id]
+  store.update(params[:store])
+  store.save
+  redirect "/stores/#{params[:id]}"
+end
+
+
 
 # Delete
 delete '/stores/:id' do
-  # Find a store and destroy it!
-  # Redirect back to /stores
+  store = Store.find_by_id params[:id]
+  store.destroy
+  redirect '/stores'
 end
