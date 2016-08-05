@@ -12,7 +12,12 @@ end
 
 # Create
 post "/stores" do
-  # Create a new Store and then send em to that stores show page
+  @store = Store.find_or_initialize_by(params[:store])
+  if @store.save
+    redirect "/stores/#{@store.id}"
+  else
+    redirect 'stores/new'
+  end
 end
 
 # Show
